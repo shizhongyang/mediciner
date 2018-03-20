@@ -1,0 +1,5 @@
+include ':app', ':IMLib', ':IMKit', ':CallLib', ':CallKit', ':sticker'
+include ':library:common'
+include ':library:irecyclerview'
+include ':library:jcvideoplayer'
+include ':library:photoPicker'

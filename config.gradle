@@ -1,0 +1,75 @@
+ext {
+    plugins = [
+            library    : 'com.android.library',
+            application: 'com.android.application',
+            maven      : 'com.github.dcendents.android-maven',
+            bintray    : 'com.jfrog.bintray',
+            butterknife: 'com.jakewharton.butterknife'
+    ]
+
+    android = [
+            applicationId          : "com.elink.health.mediciner",
+            compileSdkVersion      : 26,
+            buildToolsVersion      : "26.0.2",
+
+            librayMinSdkVersion    : 15,
+            libraryTargetSdkVersion: 23,
+            compileSdkLibraryVersion : 23,
+
+            sampleMinSdkVersion    : 15,
+            sampleTargetSdkVersion : 26,
+
+            versionCode            : 1,
+            versionName            : "1.0.0",
+    ]
+
+    dependencies = [
+            butterknifegradleplugin :  'com.jakewharton:butterknife-gradle-plugin:8.4.0',
+            androidtools   : 'com.android.tools.build:gradle:3.0.0',
+            // okhttp.
+            okhttpUrl      : 'com.squareup.okhttp3:okhttp-urlconnection:3.8.1',
+
+            // nohttp.
+            nohttp         : 'com.yanzhenjie.nohttp:nohttp:1.1.4',
+            okhttp         : 'com.yanzhenjie.nohttp:okhttp:1.1.4',
+
+
+            // json parser.
+            fastJson       : 'com.alibaba:fastjson:1.1.62.android',
+
+            // circle image.
+            circleImageView: 'de.hdodenhof:circleimageview:2.1.0',
+
+
+            supportV4            : 'com.android.support:support-v4:24.+',
+            supportconstraint    : 'com.android.support.constraint:constraint-layout:1.0.2',
+            reyclerView          : 'com.android.support:support-v4:24.+',
+            supportannotations   : 'com.android.support:support-annotations:24.+',
+            supportdesign        : 'com.android.support:design:24.+',
+            supportappcompat     : 'com.android.support:appcompat-v7:24.+',
+            supportappcompatapp  : 'com.android.support:appcompat-v7:26.+',
+            supportcardview      : 'com.android.support:cardview-v7:24.+',
+            retrofit             : 'com.squareup.retrofit2:retrofit:2.1.0',
+            logginginterceptor   : 'com.squareup.okhttp3:logging-interceptor:3.1.2',
+            rxjava               : 'io.reactivex:rxjava:1.0.14',
+            rxandroid            : 'io.reactivex:rxandroid:1.0.1',
+            convertergson        : 'com.squareup.retrofit2:converter-gson:2.0.0',
+            adapterrxjava        : 'com.squareup.retrofit2:adapter-rxjava:2.0.0',
+            logger               : 'com.orhanobut:logger:1.13',
+            fastjson             : 'com.alibaba:fastjson:1.2.8',
+            multidex             : 'com.android.support:multidex:1.0.0',
+            FlycoTabLayout_Lib   : 'com.flyco.tablayout:FlycoTabLayout_Lib:2.0.8@aar',
+            PhotoView            : 'com.commit451:PhotoView:1.2.4',
+            glide                : 'com.github.bumptech.glide:glide:3.6.1',//显示图片框架
+            butterknife          : 'com.jakewharton:butterknife:8.4.0',
+            butterknifeannotationProcessor  : 'com.jakewharton:butterknife-compiler:8.4.0',
+            fab                             : 'com.github.clans:fab:1.6.4',//悬浮动画菜单
+            updatefun                       : 'cn.hugeterry.updatefun:updatefun:1.8.6',//fire.im自动更新
+            umenganalytics                  : 'com.umeng.analytics:analytics:latest.integration',//友盟统计
+            junit                           : 'junit:junit:4.12',
+            runner                          : 'com.android.support.test:runner:1.0.1',
+            espressocore                    : 'com.android.support.test.espresso:espresso-core:3.0.1',
+
+
+    ]
+}

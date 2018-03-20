@@ -1,0 +1,78 @@
+apply plugin: rootProject.ext.plugins.library
+apply plugin: rootProject.ext.plugins.butterknife
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkLibraryVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.librayMinSdkVersion
+        targetSdkVersion rootProject.ext.android.libraryTargetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+    }
+    buildTypes {
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+        }
+        debug {
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+        }
+    }
+}
+
+
+
+
+ext {
+    isLibrary = true
+    pomArtifactId = "Common"
+    pomDescription = "Common of android picker"
+}
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath rootProject.ext.dependencies.androidtools
+        classpath rootProject.ext.dependencies.butterknifegradleplugin
+    }
+}
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile files('libs/Parse-1.9.4.jar')
+    compile files('libs/commons-codec-1.6.jar')
+    compile files('libs/alipaySdk-20160516.jar')
+
+    compile rootProject.ext.dependencies.supportV4
+    compile rootProject.ext.dependencies.reyclerView
+    compile rootProject.ext.dependencies.supportannotations
+    compile rootProject.ext.dependencies.supportdesign
+
+    compile rootProject.ext.dependencies.supportcardview
+    compile rootProject.ext.dependencies.supportappcompat
+
+
+    //retrofit和rxjava
+    compile rootProject.ext.dependencies.retrofit
+    compile rootProject.ext.dependencies.logginginterceptor
+    compile rootProject.ext.dependencies.rxjava
+    compile rootProject.ext.dependencies.rxandroid
+    compile rootProject.ext.dependencies.convertergson
+    compile rootProject.ext.dependencies.adapterrxjava
+
+    compile rootProject.ext.dependencies.FlycoTabLayout_Lib //菜单栏
+    compile rootProject.ext.dependencies.multidex//分包
+    compile rootProject.ext.dependencies.fastjson//json解析封装框架
+    compile rootProject.ext.dependencies.PhotoView//图片缩放
+    compile rootProject.ext.dependencies.logger//打印日志
+    compile rootProject.ext.dependencies.glide//显示图片框架
+    compile rootProject.ext.dependencies.butterknife
+    annotationProcessor rootProject.ext.dependencies.butterknifeannotationProcessor
+    compile rootProject.ext.dependencies.fab//悬浮动画菜单
+    compile rootProject.ext.dependencies.updatefun//fire.im自动更新
+    compile rootProject.ext.dependencies.umenganalytics//友盟统计
+}
+
+

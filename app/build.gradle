@@ -1,0 +1,68 @@
+apply plugin: rootProject.ext.plugins.application
+// 添加插件
+apply plugin: 'com.mob.sdk'
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    defaultConfig {
+        //applicationId "com.elink.health.mediciner"
+        applicationId rootProject.ext.android.applicationId
+
+        minSdkVersion rootProject.ext.android.sampleMinSdkVersion
+        targetSdkVersion rootProject.ext.android.sampleTargetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        externalNativeBuild {
+            cmake {
+//                cppFlags "-frtti -fexceptions"
+//                arguments "-DANDROID_TOOLCHAIN=clang"
+                abiFilters 'armeabi-v7a', 'armeabi'
+            }
+        }
+
+        ndk {
+            //打包进APK的ABI类型
+            abiFilters 'armeabi-v7a', 'x86'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    //配置cmake  build2.8 以后支持
+    externalNativeBuild {
+        cmake {
+            path "src/main/cpp/CMakeLists.txt"
+        }
+    }
+}
+
+// 在MobSDK的扩展中注册SMSSDK的相关信息
+MobSDK {
+    appKey "23b93ba40a9bd"
+    appSecret "23265ce8c173cda9a702159959eb0e0d"
+
+    SMSSDK {}
+}
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // implementation rootProject.ext.dependencies.supportappcompatapp
+    implementation rootProject.ext.dependencies.supportconstraint
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation rootProject.ext.dependencies.junit
+    androidTestImplementation rootProject.ext.dependencies.runner
+    androidTestImplementation rootProject.ext.dependencies.espressocore
+
+    compile project(':library:photoPicker')//图片选择
+    compile project(':library:irecyclerview')//万能适配器和recyclerview
+    compile project(':library:jcvideoplayer')//视频播放
+    compile project(':sticker')
+    compile project(':IMKit')
+    compile project(':CallKit')
+
+    compile 'com.android.support:multidex:1.0.3'
+}
